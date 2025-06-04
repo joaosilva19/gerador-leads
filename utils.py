@@ -1,4 +1,5 @@
-import pandas as pd
+import streamlit as st
 
-def salvar_csv(df):
-    df.to_csv("leads.csv", index=False)
+def baixar_csv(df):
+    csv = df.to_csv(index=False).encode("utf-8")
+    st.download_button("📥 Baixar CSV", csv, "leads.csv", "text/csv")
